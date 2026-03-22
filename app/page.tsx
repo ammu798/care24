@@ -1,65 +1,37 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main style={{minHeight:"100vh",fontFamily:"sans-serif"}}>
+      <nav style={{background:"#2563EB",padding:"16px 32px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+        <div style={{color:"white",fontSize:"24px",fontWeight:"bold"}}>Care24</div>
+        <div style={{display:"flex",gap:"12px"}}>
+          <a href="/login" style={{color:"white",textDecoration:"none",border:"1px solid white",padding:"8px 16px",borderRadius:"20px"}}>Login</a>
+          <a href="/register" style={{color:"#2563EB",background:"white",textDecoration:"none",padding:"8px 16px",borderRadius:"20px",fontWeight:"bold"}}>Register</a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+      <section style={{background:"#EFF6FF",padding:"80px 32px",textAlign:"center"}}>
+        <h1 style={{fontSize:"48px",fontWeight:"bold",color:"#1e3a5f"}}>Trusted Care for Your Loved Ones at Home</h1>
+        <p style={{fontSize:"18px",color:"#6b7280",marginTop:"16px"}}>Connect with verified nurses, caregivers and physiotherapists for in-home elderly care.</p>
+        <div style={{marginTop:"32px",display:"flex",gap:"16px",justifyContent:"center"}}>
+          <a href="/caregivers" style={{background:"#2563EB",color:"white",padding:"14px 32px",borderRadius:"30px",textDecoration:"none",fontWeight:"bold",fontSize:"16px"}}>Find a Caregiver</a>
+          <a href="/register" style={{border:"2px solid #0D9488",color:"#0D9488",padding:"14px 32px",borderRadius:"30px",textDecoration:"none",fontWeight:"bold",fontSize:"16px"}}>Register as Caregiver</a>
         </div>
-      </main>
-    </div>
+      </section>
+      <section style={{padding:"60px 32px",textAlign:"center",background:"white"}}>
+        <h2 style={{fontSize:"32px",fontWeight:"bold",color:"#1e3a5f"}}>Our Services</h2>
+        <div style={{display:"flex",gap:"24px",justifyContent:"center",marginTop:"40px",flexWrap:"wrap"}}>
+          {[{icon:"💉",title:"Nursing Care",desc:"Skilled nurses for medication & monitoring",price:"From ₹500/hr"},{icon:"🧑‍⚕️",title:"Elderly Attendant",desc:"Personal care & daily assistance",price:"From ₹300/hr"},{icon:"🏃",title:"Physiotherapy",desc:"Recovery exercises at home",price:"From ₹600/hr"},{icon:"🏠",title:"Post-Hospital Care",desc:"Recovery support after discharge",price:"From ₹800/hr"}].map((s)=>(
+            <div key={s.title} style={{border:"1px solid #e5e7eb",borderRadius:"16px",padding:"24px",width:"200px",boxShadow:"0 2px 8px rgba(0,0,0,0.08)"}}>
+              <div style={{fontSize:"40px"}}>{s.icon}</div>
+              <h3 style={{fontWeight:"bold",marginTop:"12px",color:"#1e3a5f"}}>{s.title}</h3>
+              <p style={{color:"#6b7280",fontSize:"14px",marginTop:"8px"}}>{s.desc}</p>
+              <p style={{color:"#2563EB",fontWeight:"bold",marginTop:"8px"}}>{s.price}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <footer style={{background:"#1e3a5f",color:"white",textAlign:"center",padding:"24px"}}>
+        © 2024 Care24 — Trusted Home Healthcare
+      </footer>
+    </main>
   );
 }
